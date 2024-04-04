@@ -1,3 +1,4 @@
+
 export default async function insertUser(data,e) {
   const res = await fetch(`http://localhost:3000/api/v1/users`, {
     method: "POST",
@@ -8,6 +9,7 @@ export default async function insertUser(data,e) {
   });
   const result = res.json();
   if (res.ok) {
+    // router.push('/')
     alert("add insert success");
   }else if(e){
     alert('please try agin')

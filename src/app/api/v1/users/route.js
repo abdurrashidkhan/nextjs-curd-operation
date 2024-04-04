@@ -2,6 +2,7 @@ import connectMongodb from "@/libs/mongodb";
 import usersModels from "@/models/user.schema";
 import { NextResponse } from "next/server";
 
+// insert
 export async function POST(request) {
   const { userName, userEmail } = await request.json();
   await connectMongodb();
@@ -17,4 +18,13 @@ export async function GET(req) {
     { status: 200 },
     { message: "Get All User Info" }
   );
+}
+
+
+// delete
+export async function DELETE(request) {
+  const id = request.nextUrl.searchParams.get("id");
+  await connectMongodb();
+  await usersModels.findByIdAndDelete(id);
+  return NextResponse.json({ message: "Topic deleted" }, { status: 200 });
 }

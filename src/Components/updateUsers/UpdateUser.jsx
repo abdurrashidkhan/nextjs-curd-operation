@@ -1,10 +1,20 @@
 "use client";
 
+import getOneUser from "@/data/getOneusers/getOneuser";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 
 export default function UpdateUser() {
+  const {id} = useParams();
+    // get before user
+    const user = getOneUser(id)
+
+    console.log(user);
+    
   const { register, handleSubmit } = useForm();
+
+  // 
   const onSubmit = (data, e) => console.log(data);
   const onError = (errors, e) => console.log(errors, e);
 

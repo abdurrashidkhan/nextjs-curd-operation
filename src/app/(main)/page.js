@@ -39,7 +39,7 @@ export default async function AllUsers() {
                 <td className="px-2 border border-slate-700 text-center ...">
                   <Link
                     className="hover:text-indigo-700"
-                    href={`/post/update/1`}
+                    href={`/update-user/${u._id}`}
                   >
                     Update
                   </Link>
