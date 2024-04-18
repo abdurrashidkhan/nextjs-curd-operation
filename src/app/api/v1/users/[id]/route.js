@@ -14,6 +14,6 @@ export async function PUT(request, { params }) {
 export async function GET(request, { params }) {
   const { id } = params;
   await connectMongodb();
-  const topic = await usersModels.findOne({ _id: id });
-  return NextResponse.json({ topic }, { status: 200 });
+  const users = await usersModels.findOne({ _id: id });
+  return NextResponse.json({ users }, { status: 200 });
 }
